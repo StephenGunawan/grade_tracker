@@ -6,14 +6,25 @@ class Student:
         self.grade_course = {}
 
     def add_grade(self, course, grade):
+
         self.grade_course[course] = grade
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
 
 
+class InvalidGrade(Exception):
+    def __init__(self, grade, msg="grade must be between 0 to 100 inclusive"):
+        self.grade = grade
+        self.msg = msg
+        super().__init__(self.msg)
+
+    def __str__(self):
+        return f"{self.grade} {self.msg}"
+
+
 if __name__ == "__main__":
     student = Student("Tony Stark")
-    student.add_grade("Math", "85")
-    student.add_grade("English", "75")
+    student.add_grade("Math", 85)
+    student.add_grade("English", 75)
     print(student)
