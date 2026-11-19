@@ -5,6 +5,9 @@ class Student:
         self.name = name
         self.grade_course = {}
 
+    def add_grade(self, course, grade):
+        self.grade_course[course] = grade
+
 
 if __name__ == "__main__":
     student = Student("Tony Stark")
