@@ -6,7 +6,8 @@ class Student:
         self.grade_course = {}
 
     def add_grade(self, course, grade):
-
+        if grade < 0 or grade > 100:
+            raise InvalidGrade(grade)
         self.grade_course[course] = grade
 
     def __str__(self):
@@ -27,4 +28,5 @@ if __name__ == "__main__":
     student = Student("Tony Stark")
     student.add_grade("Math", 85)
     student.add_grade("English", 75)
+    student.add_grade("History", 105)
     print(student)
