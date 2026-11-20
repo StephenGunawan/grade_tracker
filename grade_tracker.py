@@ -9,9 +9,7 @@ class Student:
         if grade < 0 or grade > 100:
             raise InvalidGrade(grade)
         course_key = course.lower()
-        if course_key not in self.grade_course:
-            self.grade_course.setdefault(course_key, [])
-        self.grade_course[course_key].append(grade)
+        self.grade_course.setdefault(course_key, []).append(grade)
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
