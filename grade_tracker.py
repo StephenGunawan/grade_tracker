@@ -8,7 +8,10 @@ class Student:
     def add_grade(self, course, grade):
         if grade < 0 or grade > 100:
             raise InvalidGrade(grade)
-        self.grade_course[course] = grade
+        course_key = course.lower()
+        if course_key not in self.grade_course:
+            self.grade_course.setdefault(course_key, [])
+        self.grade_course[course_key].append(grade)
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
@@ -27,6 +30,7 @@ class InvalidGrade(Exception):
 if __name__ == "__main__":
     student = Student("Tony Stark")
     student.add_grade("Math", 85)
+    student.add_grade("math", 90)
     student.add_grade("English", 75)
-    student.add_grade("History", 105)
+    student.add_grade("History", 100)
     print(student)
