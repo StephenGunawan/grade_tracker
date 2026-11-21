@@ -11,6 +11,13 @@ class Student:
         course_key = course.lower()
         self.grade_course.setdefault(course_key, []).append(grade)
 
+    def course_average(self, course):
+        course_key = course.lower()
+        average = 0
+        for num in self.grade_course[course_key]:
+            average += num
+        return average / len(self.grade_course[course_key])
+
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
 
