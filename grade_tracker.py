@@ -16,7 +16,7 @@ class Student:
         average = 0
         for num in self.grade_course[course_key]:
             average += num
-        return average / len(self.grade_course[course_key])
+        return f" {self.name} {course_key} average grade: {average / len(self.grade_course[course_key])}"
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
