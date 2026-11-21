@@ -39,3 +39,4 @@ if __name__ == "__main__":
     student.add_grade("English", 75)
     student.add_grade("History", 100)
     print(student)
+    print(student.course_average("Math"))
