@@ -13,10 +13,19 @@ class Student:
 
     def course_average(self, course):
         course_key = course.lower()
-        average = 0
+        total_grade = 0
         for num in self.grade_course[course_key]:
-            average += num
-        return f" {self.name} {course_key} average grade: {average / len(self.grade_course[course_key])}"
+            total_grade += num
+        return f" {self.name} [{course_key}] average grade: {total_grade / len(self.grade_course[course_key])}"
+
+    def overall_average(self):
+        grade_count = 0
+        total_grade = 0
+        for course in self.grade_course:
+            for grade in self.grade_course[course]:
+                total_grade += grade
+                grade_count += 1
+        return total_grade / grade_count
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
@@ -40,3 +49,4 @@ if __name__ == "__main__":
     student.add_grade("History", 100)
     print(student)
     print(student.course_average("Math"))
+    print(student.overall_average())
