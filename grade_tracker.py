@@ -1,7 +1,7 @@
 class Student:
     def __init__(self, name):
         if not name:
-            raise ValueError("name is empty")
+            raise ValueError("student name is empty")
         self.name = name
         self.grade_course = {}
 
@@ -29,6 +29,14 @@ class Student:
 
     def __str__(self):
         return f"Student Name: {self.name} \n Grades: {self.grade_course}"
+
+
+class Course:
+    def __init__(self, name):
+        if not name:
+            raise ValueError("course name is empty")
+        self.name = name.lower()
+        self.students = []
 
 
 class InvalidGrade(Exception):
