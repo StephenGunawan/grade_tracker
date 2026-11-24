@@ -49,6 +49,19 @@ class InvalidGrade(Exception):
         return f"{self.grade} {self.msg}"
 
 
+def letter_grade(average):
+    if average < 60:
+        return "F"
+    elif average < 70:
+        return "D"
+    elif average < 80:
+        return "C"
+    elif average < 90:
+        return "B"
+    elif average <= 100:
+        return "A"
+
+
 if __name__ == "__main__":
     student = Student("Tony Stark")
     student.add_grade("Math", 85)
