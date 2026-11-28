@@ -39,6 +39,9 @@ class Course:
         self.students = []
 
     def enroll(self, student):
+        for person in self.students:
+            if student.name == person.name:
+                raise
         self.students.append(student)
 
 
@@ -50,6 +53,16 @@ class InvalidGrade(Exception):
 
     def __str__(self):
         return f"{self.grade} {self.msg}"
+
+
+class InvalidEnrollment(Exception):
+    def __init__(self, student, msg="student name cannot be identical"):
+        self.student = student
+        self.msg = msg
+        super().__init__(self.msg)
+
+    def __str__(self):
+        return f"{self.student} {self.msg}"
 
 
 def letter_grade(average):
