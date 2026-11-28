@@ -38,6 +38,9 @@ class Course:
         self.name = name.lower()
         self.students = []
 
+    def enroll(self, student):
+        self.students.append(student)
+
 
 class InvalidGrade(Exception):
     def __init__(self, grade, msg="grade must be between 0 to 100 inclusive"):
