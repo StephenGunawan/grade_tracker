@@ -39,9 +39,12 @@ class Course:
         self.students = []
 
     def enroll(self, student):
+        if not student or not isinstance(student, Student):
+            raise InvalidEnrollment(student, "enrollment need a student")
+
         for person in self.students:
             if student.name == person.name:
-                raise
+                raise InvalidEnrollment(student)
         self.students.append(student)
 
 
@@ -56,7 +59,7 @@ class InvalidGrade(Exception):
 
 
 class InvalidEnrollment(Exception):
-    def __init__(self, student, msg="student name cannot be identical"):
+    def __init__(self, student, msg="student enrollement is invalid"):
         self.student = student
         self.msg = msg
         super().__init__(self.msg)
