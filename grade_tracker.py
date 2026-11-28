@@ -16,7 +16,7 @@ class Student:
         total_grade = 0
         for num in self.grade_course[course_key]:
             total_grade += num
-        return f" {self.name} [{course_key}] average grade: {total_grade / len(self.grade_course[course_key])}"
+        return f" {self.name} [{course_key}] average grade: {letter_grade(total_grade / len(self.grade_course[course_key]))} [{total_grade / len(self.grade_course[course_key])}]"
 
     def overall_average(self):
         grade_count = 0
